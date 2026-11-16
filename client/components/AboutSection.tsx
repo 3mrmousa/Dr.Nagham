@@ -12,8 +12,8 @@ const trainingBadges = [
   {
     Icon: Syringe,
     iconColor: "text-primary",
-    title: "حقن التجميل المتقدمة والفيلر والبوتوكس",
-    subtitle: "Cosmetic Injection Techniques: Botox & Dermal Fillers",
+    title: "حقن التجميل المتقدمة والبوتوكس",
+    subtitle: "Cosmetic Injection Techniques & Botox",
   },
   {
     Icon: Sparkles,
@@ -39,9 +39,12 @@ const societies = [
   "الجمعية المصرية للأمراض الجلدية (EDS)",
   "جمعية الطبيبات المصريات",
   "مؤتمرات شرم ديرما الدولية (Sharm Derma)",
-  "مؤتمرات الأقصر لديرماتولوجي",
+  "مؤتمرات الأقصر ديرماتولوجي",
   "مؤتمر زايد الطبي للأمراض الجلدية",
-  "مؤتمرات الأزهر الطبية والمؤتمرات التفاعلية (DMC)",
+  "مؤتمرات الأزهر الطبية",
+  "مؤتمرات Interactive Dermatology",
+  "مؤتمرات DMC",
+  "مؤتمرات ICC",
 ];
 
 export function AboutSection() {

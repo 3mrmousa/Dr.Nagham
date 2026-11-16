@@ -13,17 +13,6 @@ const clinicalCases = [
     metaRight: "رضا الحالة: ١٠٠٪",
   },
   {
-    image: "/images/case-filler.png",
-    alt: "حقن الفيلر التجميلي الطبيعي",
-    beforeLabel: "قبل الإجراء",
-    afterLabel: "نتيجة فورية",
-    title: "حقن الفيلر الطبيعي وتحديد الملامح",
-    description:
-      "تنسيق ملامح الشفاه واستعادة التناغم الطبيعي للوجه دون مظهر مصطنع أو انتفاخ زائد.",
-    metaLeft: "المدة المستغرقة: ٢٠ دقيقة",
-    metaRight: "المادة: هيالورونيك معتمد",
-  },
-  {
     image: "/images/case-laser.png",
     alt: "علاج التصبغات والندبات بالليزر",
     beforeLabel: "جلسة ١",
@@ -57,7 +46,7 @@ export function ResultsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
           {clinicalCases.map((item) => (
             <div
               key={item.title}

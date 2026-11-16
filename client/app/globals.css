@@ -61,19 +61,32 @@
   --spacing-gutter-desktop: 2rem;
 
   --font-sans: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-label-md: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-headline-xl: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-headline-sm: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-headline-md: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-label-lg: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-label-sm: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-body-md: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-headline-lg-mobile: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-body-lg: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-body-sm: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-title-md: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-headline-lg: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
-  --font-headline-xl-mobile: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-label-md:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-headline-xl:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-headline-sm:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-headline-md:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-label-lg:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-label-sm:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-body-md:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-headline-lg-mobile:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-body-lg:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-body-sm:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-title-md:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-headline-lg:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
+  --font-headline-xl-mobile:
+    var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", sans-serif;
 
   --text-label-md: 12px;
   --text-label-md--line-height: 18px;
@@ -144,4 +157,25 @@
 
 .dir-ltr {
   direction: ltr;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f6f3f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #c81d67;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a2004f;
+}
+
+@media (pointer: coarse) {
+  html {
+    scrollbar-color: #c81d67 #f6f3f0;
+    scrollbar-width: thin;
+  }
 }

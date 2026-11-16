@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
+import IntroScreen from "@/components/animations/IntroScreen";
 
 const ibmPlexArabic = IBM_Plex_Sans_Arabic({
   weight: ["400", "500", "600", "700"],
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html dir="rtl" lang="ar" className={ibmPlexArabic.variable}>
       <body className="bg-surface font-body-md text-on-surface antialiased">
+        <IntroScreen />
         {children}
       </body>
     </html>

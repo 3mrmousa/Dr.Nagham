@@ -74,13 +74,12 @@ const services = [
     Icon: Syringe,
     iconBoxClass: "bg-primary-fixed text-primary",
     dotClass: "bg-primary",
-    englishTitle: "Botox & Dermal Fillers",
+    englishTitle: "Botox & Cosmetic Injections",
     title: "الحقن التجميلي غير الجراحي",
     description:
-      "إجراءات دقيقة لاستعادة تناسق الملامح، علاج تجاعيد التعبير، تحديد خط الفك، وحقن الفيلر الهيالوروني بمقاييس جمالية راقية تبتعد عن المبالغة.",
+      "إجراءات دقيقة لاستعادة نضارة الملامح وعلاج تجاعيد التعبير بمقاييس جمالية راقية تبتعد عن المبالغة.",
     features: [
       "بوتوكس الجبهة، محيط العين، وتجاعيد الرقبة",
-      "فيلر الشفاه والخدود والذقن الطبيعي",
       "حقن علاج فرط التعرق (Hyperhidrosis)",
     ],
     footerLabel: "مواد مرخصة دولياً",
