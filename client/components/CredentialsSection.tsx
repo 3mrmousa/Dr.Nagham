@@ -123,7 +123,7 @@ export function CredentialsSection() {
                     شهادة استشاري نقابة أطباء مصر
                   </h3>
                 </div>
-                <span className="px-space-xs py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold">
+                <span className="hidden sm:block px-space-xs py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold">
                   وثيقة رسمية
                 </span>
               </div>
@@ -202,11 +202,11 @@ export function CredentialsSection() {
 
             <div className="lg:col-span-7 space-y-space-md">
               <div className="bg-surface-container-low rounded-2xl p-space-md border border-outline-variant/40 shadow-sm flex flex-col sm:flex-row items-center gap-space-md">
-                <div className="w-24 h-32 rounded-xl overflow-hidden border-2 border-primary-fixed shadow-md flex-shrink-0 bg-surface">
+                <div className="hidden sm:block w-24 h-32 rounded-xl overflow-hidden border-2 border-primary-fixed shadow-md shrink-0 bg-surface">
                   <img
                     alt="د. نغم عماد ناصيف مكي"
-                    className="w-full h-full object-cover object-top"
-                    src="/images/doctor-portrait.png"
+                    className="w-full h-full object-contain object-top"
+                    src="/images/doctor-portrait.jpg"
                   />
                 </div>
                 <div className="space-y-1 text-center sm:text-right">
@@ -239,7 +239,7 @@ export function CredentialsSection() {
                       <span>عرض السيرة الذاتية</span>
                     </button>
                     <a
-                      href="/images/doctor-portrait.png"
+                      href="/images/doctor-portrait.jpg"
                       download="السيرة-الذاتية-د-نغم-عماد.png"
                       className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-bright/95 text-on-surface font-label-md text-label-md font-bold shadow-sm hover:bg-surface-bright transition-colors border border-outline-variant/40"
                     >
@@ -379,7 +379,7 @@ export function CredentialsSection() {
             onClick={(e) => e.stopPropagation()}
             alt="السيرة الذاتية المهنية - د. نغم عماد ناصيف مكي"
             className="h-auto max-h-[90vh] max-w-[90vw] sm:w-100 object-contain mx-auto bg-surface-bright p-1 transition-transform duration-500 ease-out"
-            src="/images/doctor-portrait.png"
+            src="/images/doctor-portrait.jpg"
           />
         </div>
       )}
