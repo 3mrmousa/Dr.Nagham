@@ -5,6 +5,7 @@ import IntroScreen from "@/components/animations/IntroScreen";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { medicalClinicJsonLd, SITE_URL } from "@/lib/seo";
 
 const ibmPlexArabic = IBM_Plex_Sans_Arabic({
   weight: ["400", "500", "600", "700"],
@@ -13,6 +14,7 @@ const ibmPlexArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "عيادة دكتورة نغم عماد تاصيف - استشاري جلدية وتجميل",
   description:
     "عيادة د. نغم عماد ناصيف مكي - استشاري الأمراض الجلدية والتناسلية والطب التجميلي بمدينة ٦ أكتوبر. خبرة إكلينيكية تمتد لأكثر من ١٧ عاماً.",
@@ -30,6 +32,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html dir="rtl" lang="ar" className={ibmPlexArabic.variable}>
       <body className="bg-surface font-body-md text-on-surface antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(medicalClinicJsonLd),
+          }}
+        />
         <IntroScreen />
         <Navbar />
         <main className="w-full pt-20 bg-surface">

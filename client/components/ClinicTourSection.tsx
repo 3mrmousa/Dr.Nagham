@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Building2 } from "lucide-react";
 
 const tourPhotos = [
@@ -55,9 +56,11 @@ export function ClinicTourSection() {
               className="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm group border border-outline-variant/30"
             >
               <div className="h-64 overflow-hidden relative">
-                <img
+                <Image
                   alt={item.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                   src={item.image}
                 />
                 <div

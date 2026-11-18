@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import {
   ShieldCheck,
   Award,
@@ -129,8 +130,10 @@ export function CredentialsSection() {
               </div>
 
               <div className="relative rounded-xl overflow-hidden border border-outline-variant/50 bg-surface shadow-inner group">
-                <img
+                <Image
                   alt="شهادة استشاري نقابة أطباء مصر - د. نغم عماد ناصيف مكي"
+                  width={800}
+                  height={1000}
                   className="w-full h-auto max-h-115 object-contain mx-auto bg-surface-bright p-1 group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                   src="/images/about/syndicate-certificate.png"
                 />
@@ -202,10 +205,12 @@ export function CredentialsSection() {
 
             <div className="lg:col-span-7 space-y-space-md">
               <div className="bg-surface-container-low rounded-2xl p-space-md border border-outline-variant/40 shadow-sm flex flex-col sm:flex-row items-center gap-space-md">
-                <div className="hidden sm:block w-24 h-32 rounded-xl overflow-hidden border-2 border-primary-fixed shadow-md shrink-0 bg-surface">
-                  <img
+                <div className="hidden sm:block relative w-24 h-32 rounded-xl overflow-hidden border-2 border-primary-fixed shadow-md shrink-0 bg-surface">
+                  <Image
                     alt="د. نغم عماد ناصيف مكي"
-                    className="w-full h-full object-contain object-top"
+                    fill
+                    sizes="96px"
+                    className="object-contain object-top"
                     src="/images/about/doctor-portrait.jpg"
                   />
                 </div>
@@ -358,9 +363,11 @@ export function CredentialsSection() {
             onClick={handleShowCertificate}
             className="absolute top-5 right-5 size-10 text-primary-container cursor-pointer"
           />
-          <img
+          <Image
             onClick={(e) => e.stopPropagation()}
             alt="شهادة استشاري نقابة أطباء مصر - د. نغم عماد ناصيف مكي"
+            width={900}
+            height={1100}
             className="h-auto sm:w-100 object-contain mx-auto bg-surface-bright p-1 group-hover:scale-[1.03] transition-transform duration-500 ease-out"
             src="/images/about/syndicate-certificate.png"
           />
@@ -375,9 +382,11 @@ export function CredentialsSection() {
             onClick={handleShowCV}
             className="absolute top-5 right-5 size-10 text-primary-container cursor-pointer"
           />
-          <img
+          <Image
             onClick={(e) => e.stopPropagation()}
             alt="السيرة الذاتية المهنية - د. نغم عماد ناصيف مكي"
+            width={900}
+            height={1100}
             className="h-auto max-h-[90vh] max-w-[90vw] sm:w-100 object-contain mx-auto bg-surface-bright p-1 transition-transform duration-500 ease-out"
             src="/images/about/doctor-portrait.jpg"
           />

@@ -44,10 +44,13 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
           <div className="lg:col-span-5 grid grid-cols-2 gap-space-sm relative">
             <div className="space-y-space-sm">
-              <div className="rounded-xl overflow-hidden shadow-md h-52 bg-surface-container border border-outline-variant/30">
-                <img
+              <div className="relative rounded-xl overflow-hidden shadow-md h-52 bg-surface-container border border-outline-variant/30">
+                <Image
                   alt="غرفة الفحص والعلاج الطبي المجهزة"
-                  className="w-full h-full object-cover"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 50vw, 20vw"
+                  className="object-cover"
                   src="/images/about/treatment-room.png"
                 />
               </div>
@@ -72,10 +75,13 @@ export function AboutSection() {
                   من هيئات الدواء.
                 </p>
               </div>
-              <div className="rounded-xl overflow-hidden shadow-md h-52 bg-surface-container border border-outline-variant/30">
-                <img
+              <div className="relative rounded-xl overflow-hidden shadow-md h-52 bg-surface-container border border-outline-variant/30">
+                <Image
                   alt="مكتب الاستشارة الطبية"
-                  className="w-full h-full object-cover"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 50vw, 20vw"
+                  className="object-cover"
                   src="/images/shared/consultation-room.png"
                 />
               </div>

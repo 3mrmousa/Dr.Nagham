@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, BadgeCheck, PhoneCall, Mail, Shield } from "lucide-react";
 
@@ -116,15 +117,21 @@ export function HeroSection() {
           <div className="lg:col-span-5 relative">
             <div className="relative bg-surface-container-lowest rounded-2xl p-space-xs shadow-xl overflow-hidden border border-outline-variant/30">
               <div className="relative h-96 w-full rounded-xl overflow-hidden">
-                <img
+                <Image
                   alt="جناح الاستشارة والعيادة لدكتورة نغم عماد تاصيف"
-                  className="w-full h-full object-cover object-center"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover object-center"
                   src="/images/shared/consultation-room.png"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/85 via-inverse-surface/20 to-transparent" />
                 <div className="absolute top-4 left-4 bg-surface-container-lowest/95 backdrop-blur-md p-2 rounded-xl shadow-md flex items-center gap-2 border border-outline-variant/30">
-                  <img
+                  <Image
                     alt="شعار د. نغم عماد تاصيف الرسمي"
+                    width={40}
+                    height={40}
+                    priority
                     className="h-10 w-auto object-contain"
                     src="/images/shared/logo.svg"
                   />

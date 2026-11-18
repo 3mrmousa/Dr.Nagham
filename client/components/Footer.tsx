@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   MapPin,
@@ -24,16 +25,17 @@ export function Footer() {
         {/* Clinic Brand */}
         <div className="space-y-space-md">
           <Link href="/" className="flex items-center gap-space-sm">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               alt="شعار د. نغم عماد"
+              width={60}
+              height={60}
               className="w-15 h-15 object-contain"
               src="/images/shared/logo.svg"
             />
             <div>
-              <h4 className="font-title-md text-title-md text-primary leading-tight">
+              <p className="font-title-md text-title-md text-primary font-bold leading-tight">
                 د. نغم عماد تاصيف
-              </h4>
+              </p>
               <span className="text-xs text-on-surface-variant font-medium">
                 د. نغم عماد ناصيف مكي
               </span>
@@ -58,9 +60,9 @@ export function Footer() {
 
         {/* Quick Page Links */}
         <div className="space-y-space-md">
-          <h5 className="font-headline-sm text-headline-sm text-on-surface">
+          <h2 className="font-headline-sm text-headline-sm text-on-surface">
             أقسام الموقع
-          </h5>
+          </h2>
           <ul className="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant">
             {PAGE_LINKS.map((link) => (
               <li key={link.href}>
@@ -77,9 +79,9 @@ export function Footer() {
 
         {/* Clinic Contact & Hours */}
         <div className="space-y-space-md">
-          <h5 className="font-headline-sm text-headline-sm text-on-surface">
+          <h2 className="font-headline-sm text-headline-sm text-on-surface">
             معلومات العيادة والتواصل
-          </h5>
+          </h2>
           <div className="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant">
             <div className="flex items-start gap-space-xs">
               <MapPin className="w-4 h-4 text-secondary mt-0.5 shrink-0" />
@@ -125,9 +127,9 @@ export function Footer() {
 
         {/* Clinic Shortcuts & Social */}
         <div className="space-y-space-md">
-          <h5 className="font-headline-sm text-headline-sm text-on-surface">
+          <h2 className="font-headline-sm text-headline-sm text-on-surface">
             روابط سريعة
-          </h5>
+          </h2>
           <div className="grid grid-cols-3 gap-space-xs">
             <Link
               href="/about"

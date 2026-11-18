@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -134,9 +135,11 @@ export function Navbar() {
       {/* Main Header */}
       <div className="relative h-20 max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between">
         <Link href="/" className="flex items-center gap-space-md">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             alt="شعار د. نغم عماد"
+            width={60}
+            height={60}
+            priority
             className="w-15 h-15 object-contain"
             src="/images/shared/logo.svg"
           />

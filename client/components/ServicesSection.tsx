@@ -1,8 +1,8 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ClipboardList, ArrowLeft } from "lucide-react";
-import TiltedCard from "@/components/ui/TiltedCard";
+import { ClipboardList, ArrowLeft, Microscope } from "lucide-react";
+import TiltedCard, { TiltedCardLayer } from "@/components/ui/TiltedCard";
 
 const services = [
   {
@@ -87,6 +87,30 @@ const services = [
       "تقشير كربوني لتنقية وتضييق المسام",
     ],
     footerLabel: "نضارة ونقاء فوري",
+  },
+];
+
+const clinicDevices = [
+  {
+    imageSrc: "/images/services/woods-light.jpg",
+    badge: "Wood's Light",
+    title: "جهاز الكشف الضوئي (Wood's Light)",
+    description:
+      "متوفر جهاز الكشف الضوئي لتشخيص البهاق والتصبغات وبعض الأمراض الجلدية بدقة عالية.",
+  },
+  {
+    imageSrc: "/images/services/cryotherapy.jpg",
+    badge: "Cryotherapy & Electrocautery",
+    title: "الكي البارد والكهربائي (الكي بالتبريد)",
+    description:
+      "علاج السنط والزوائد الجلدية بجهاز الكي البارد والكهربائي بما يناسب كل حالة.",
+  },
+  {
+    imageSrc: "/images/services/dermapen.jpg",
+    badge: "Dermapen & Microbleeding",
+    title: "جلسات الديرمابن والمايكروبليدينج",
+    description:
+      "تقنيات المايكروبليدينج والديرمابن لعلاج الندبات، تجديد البشرة، وتحفيز الكولاجين.",
   },
 ];
 
@@ -183,6 +207,103 @@ export function ServicesSection() {
                 </div>
               </TiltedCard>
           ))}
+        </div>
+
+        {/* Diagnostic Devices & Real Clinic Procedures */}
+        <div className="mt-space-xl pt-space-lg border-t border-outline-variant/30 space-y-space-lg">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+            <div>
+              <span className="font-label-md text-label-md text-secondary font-semibold">
+                تجهيزات وتقنيات العيادة الفعلية
+              </span>
+              <h3 className="font-headline-md text-headline-md text-on-surface mt-1">
+                أجهزة التشخيص والعلاج التخصصية بالعيادة
+              </h3>
+            </div>
+            <p className="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+              صور حقيقية من داخل العيادة أثناء استخدام أحدث أجهزة التشخيص
+              الضوئي والعلاج بالتبريد والمايكروبليدينج.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+            {clinicDevices.map((device, index) => (
+              <TiltedCard
+                key={device.badge}
+                imageSrc={device.imageSrc}
+                altText={device.title}
+                captionText={device.badge}
+                showTooltip
+                containerWidth="100%"
+                containerHeight="420px"
+                imageWidth="100%"
+                imageHeight="420px"
+                rotateAmplitude={8}
+                scaleOnHover={1.03}
+                glare={0.25}
+                shadow={0.35}
+                radius={20}
+                intro
+                introDelay={index * 90}
+                style={
+                  {
+                    "--tc-shadow-color": "rgba(43, 29, 36, 0.2)",
+                  } as CSSProperties
+                }
+              >
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                <TiltedCardLayer depth={22}>
+                  <div className="h-full flex flex-col justify-end p-5 text-white text-start">
+                    <span className="inline-block w-fit px-2.5 py-0.5 rounded-full bg-primary/90 text-on-primary text-[11px] font-bold mb-2">
+                      {device.badge}
+                    </span>
+                    <h4 className="font-title-md text-title-md font-bold leading-snug mb-1">
+                      {device.title}
+                    </h4>
+                    <p className="text-xs text-white/85 leading-relaxed">
+                      {device.description}
+                    </p>
+                  </div>
+                </TiltedCardLayer>
+              </TiltedCard>
+            ))}
+          </div>
+
+          {/* Dermoscopy Highlight Banner */}
+          <div className="rounded-2xl bg-surface-container-lowest border border-outline-variant/35 p-5 md:p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-2xl overflow-hidden bg-white border border-outline-variant/30 flex items-center justify-center shrink-0">
+                <Image
+                  src="/images/about/dermatoscope-laser.jpg"
+                  alt="جهاز ديرموسكوب (منظار الجلد)"
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-contain p-0.5"
+                />
+              </div>
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-1.5 text-secondary font-label-sm text-label-sm font-bold">
+                  <Microscope className="w-4 h-4" />
+                  <span>Dermoscopy — الفحص المجهري للجلد</span>
+                </div>
+                <h4 className="font-title-md text-title-md text-on-surface font-bold">
+                  جهاز الديرموسكوب (منظار الجلد) للتشخيص الدقيق
+                </h4>
+                <p className="font-body-sm text-body-sm text-on-surface-variant">
+                  متوفر جهاز ديرموسكوب (منظار الجلد) لتشخيص أدق للعديد من أمراض
+                  الجلد والشعر والأورام السطحية.
+                </p>
+              </div>
+            </div>
+
+            <Link
+              href="/booking"
+              className="px-space-md py-2.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md font-bold hover:bg-primary transition-colors whitespace-nowrap inline-flex items-center gap-1.5 shrink-0"
+            >
+              <span>حجز فحص بالمنظار</span>
+              <ArrowLeft className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

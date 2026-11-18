@@ -7,6 +7,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
+  useCallback,
   ReactNode,
   FC,
 } from 'react';
@@ -15,7 +16,6 @@ import { cn } from '@/lib/utils';
 
 interface ProgressSliderContextType {
   active: string;
-  progress: number;
   handleButtonClick: (value: string) => void;
   vertical: boolean;
 }
@@ -55,6 +55,8 @@ interface SliderBtnProps {
 const ProgressSliderContext = createContext<
   ProgressSliderContextType | undefined
 >(undefined);
+
+const ProgressValueContext = createContext<number>(0);
 
 export const useProgressSliderContext = (): ProgressSliderContextType => {
   const context = useContext(ProgressSliderContext);
@@ -136,22 +138,30 @@ export const ProgressSlider: FC<ProgressSliderProps> = ({
     };
   }, [sliderValues, active, isFastForward, duration, fastDuration]);
 
-  const handleButtonClick = (value: string) => {
-    if (value !== active) {
-      const elapsedTime = performance.now() - firstFrameTime.current;
-      const currentProgress = (elapsedTime / duration) * 100;
-      setProgress(currentProgress);
-      targetValue.current = value;
-      setIsFastForward(true);
-      firstFrameTime.current = performance.now();
-    }
-  };
+  const handleButtonClick = useCallback(
+    (value: string) => {
+      if (value !== active) {
+        const elapsedTime = performance.now() - firstFrameTime.current;
+        const currentProgress = (elapsedTime / duration) * 100;
+        setProgress(currentProgress);
+        targetValue.current = value;
+        setIsFastForward(true);
+        firstFrameTime.current = performance.now();
+      }
+    },
+    [active, duration]
+  );
+
+  const sliderContextValue = useMemo(
+    () => ({ active, handleButtonClick, vertical }),
+    [active, handleButtonClick, vertical]
+  );
 
   return (
-    <ProgressSliderContext.Provider
-      value={{ active, progress, handleButtonClick, vertical }}
-    >
-      <div className={cn('relative', className)}>{children}</div>
+    <ProgressSliderContext.Provider value={sliderContextValue}>
+      <ProgressValueContext.Provider value={progress}>
+        <div className={cn('relative', className)}>{children}</div>
+      </ProgressValueContext.Provider>
     </ProgressSliderContext.Provider>
   );
 };
@@ -171,7 +181,7 @@ export const SliderWrapper: FC<SliderWrapperProps> = ({
   const { active } = useProgressSliderContext();
 
   return (
-    <AnimatePresence mode="popLayout">
+    <AnimatePresence mode='popLayout'>
       {active === value && (
         <motion.div
           key={value}
@@ -201,15 +211,16 @@ export const SliderBtn: FC<SliderBtnProps> = ({
   className,
   progressBarClass,
 }) => {
-  const { active, progress, handleButtonClick, vertical } =
-    useProgressSliderContext();
+  const { active, handleButtonClick, vertical } = useProgressSliderContext();
+  const progress = useContext(ProgressValueContext);
+  const isActive = active === value;
 
   return (
     <button
       type="button"
       className={cn(
         'relative z-0 transition-opacity duration-300',
-        active === value ? 'opacity-100' : 'opacity-60 hover:opacity-85',
+        isActive ? 'opacity-100' : 'opacity-60 hover:opacity-85',
         className
       )}
       onClick={() => handleButtonClick(value)}
@@ -218,13 +229,15 @@ export const SliderBtn: FC<SliderBtnProps> = ({
       <div
         className="absolute inset-0 overflow-hidden -z-10 max-h-full max-w-full"
         role="progressbar"
-        aria-valuenow={Math.round(active === value ? progress : 0)}
+        aria-label="تقدم عرض التقييم"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(isActive ? progress : 0)}
       >
         <span
           className={cn('absolute start-0 bottom-0', progressBarClass)}
           style={{
-            [vertical ? 'height' : 'width']:
-              active === value ? `${progress}%` : '0%',
+            [vertical ? 'height' : 'width']: isActive ? `${progress}%` : '0%',
           }}
         />
       </div>

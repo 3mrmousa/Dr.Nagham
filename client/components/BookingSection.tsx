@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   MapPin,
   Phone,
@@ -132,9 +133,12 @@ export function BookingSection() {
               </div>
 
               <div className="rounded-xl overflow-hidden shadow-sm h-56 lg:flex-1 lg:min-h-56 relative border border-outline-variant/40">
-                <img
+                <Image
                   alt="يافطة العيادة ومبنى العيادات التخصصية أعلى قطونيل"
-                  className="w-full h-full object-cover"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover"
                   src="/images/shared/clinic-exterior.png"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-inverse-surface/85 via-transparent to-transparent flex items-end p-space-xs">
