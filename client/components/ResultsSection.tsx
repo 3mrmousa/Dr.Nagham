@@ -1,8 +1,12 @@
+import type { CSSProperties } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { BadgeCheck, Lock } from "lucide-react";
+import TiltedCard from "@/components/ui/TiltedCard";
 
 const clinicalCases = [
   {
-    image: "/images/case-skinbooster.png",
+    image: "/images/services/case-skinbooster.png",
     alt: "نتائج علاج نضارة البشرة والسكين بوستر",
     beforeLabel: "قبل العلاج",
     afterLabel: "بعد جلستين",
@@ -13,7 +17,7 @@ const clinicalCases = [
     metaRight: "رضا الحالة: ١٠٠٪",
   },
   {
-    image: "/images/case-laser.png",
+    image: "/images/services/case-laser.png",
     alt: "علاج التصبغات والندبات بالليزر",
     beforeLabel: "جلسة ١",
     afterLabel: "بعد الكورس",
@@ -47,39 +51,61 @@ export function ResultsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-          {clinicalCases.map((item) => (
-            <div
+          {clinicalCases.map((item, index) => (
+            <TiltedCard
               key={item.title}
-              className="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30"
+              containerWidth="100%"
+              containerHeight="410px"
+              imageWidth="100%"
+              imageHeight="410px"
+              rotateAmplitude={8}
+              scaleOnHover={1.03}
+              glare={0.25}
+              shadow={0.35}
+              radius={20}
+              intro
+              introDelay={index * 90}
+              captionText={item.metaRight}
+              showTooltip
+              style={
+                {
+                  "--tc-shadow-color": "rgba(43, 29, 36, 0.16)",
+                } as CSSProperties
+              }
             >
-              <div className="relative h-64 bg-surface-container">
-                <img
-                  alt={item.alt}
-                  className="w-full h-full object-cover"
-                  src={item.image}
-                />
-                <div className="absolute top-3 right-3 px-space-xs py-0.5 rounded bg-inverse-surface/80 text-surface-bright font-label-sm text-label-sm">
-                  {item.beforeLabel}
+              <div className="w-full h-full bg-surface-container-lowest rounded-[20px] overflow-hidden border border-outline-variant/30 flex flex-col">
+                <div className="relative h-60 shrink-0 bg-surface-container">
+                  <Image
+                    alt={item.alt}
+                    fill
+                    className="object-cover"
+                    src={item.image}
+                  />
+                  <div className="absolute top-3 right-3 px-space-xs py-0.5 rounded bg-inverse-surface/80 text-surface-bright font-label-sm text-label-sm">
+                    {item.beforeLabel}
+                  </div>
+                  <div className="absolute top-3 left-3 px-space-xs py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm">
+                    {item.afterLabel}
+                  </div>
                 </div>
-                <div className="absolute top-3 left-3 px-space-xs py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm">
-                  {item.afterLabel}
+                <div className="p-space-md flex-1 flex flex-col justify-between gap-space-xs">
+                  <div className="space-y-space-xs">
+                    <h4 className="font-title-md text-title-md text-on-surface font-bold">
+                      {item.title}
+                    </h4>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                      {item.description}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between pt-space-xs font-label-sm text-label-sm text-secondary border-t border-outline-variant/20">
+                    <span>{item.metaLeft}</span>
+                    <span className="font-bold text-primary">
+                      {item.metaRight}
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="p-space-md space-y-space-xs">
-                <h4 className="font-title-md text-title-md text-on-surface font-bold">
-                  {item.title}
-                </h4>
-                <p className="font-body-sm text-body-sm text-on-surface-variant">
-                  {item.description}
-                </p>
-                <div className="flex items-center justify-between pt-space-xs font-label-sm text-label-sm text-secondary">
-                  <span>{item.metaLeft}</span>
-                  <span className="font-bold text-primary">
-                    {item.metaRight}
-                  </span>
-                </div>
-              </div>
-            </div>
+            </TiltedCard>
           ))}
         </div>
 
@@ -98,12 +124,12 @@ export function ResultsSection() {
               </p>
             </div>
           </div>
-          <a
+          <Link
             className="px-space-md py-space-xs rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm hover:bg-surface-bright border border-outline-variant/40 transition-colors whitespace-nowrap"
-            href="#booking-section"
+            href="/booking"
           >
             تقييم الحالة مع الدكتورة
-          </a>
+          </Link>
         </div>
       </div>
     </section>

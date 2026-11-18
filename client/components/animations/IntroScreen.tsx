@@ -24,7 +24,7 @@ export default function IntroScreen() {
           className="fixed inset-0 z-9999 flex flex-col items-center justify-center px-margin text-center select-none bg-linear-to-b from-surface-bright via-primary-fixed/85 to-surface backdrop-blur-xs"
         >
           <motion.img
-            src="/images/logo.svg"
+            src="/images/shared/logo.svg"
             alt="شعار عيادة د. نغم عماد ناصيف مكي"
             initial={{ opacity: 0, scale: 0.9, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}

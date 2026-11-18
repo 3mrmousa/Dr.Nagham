@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 import IntroScreen from "@/components/animations/IntroScreen";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 
 const ibmPlexArabic = IBM_Plex_Sans_Arabic({
   weight: ["400", "500", "600", "700"],
@@ -28,7 +31,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html dir="rtl" lang="ar" className={ibmPlexArabic.variable}>
       <body className="bg-surface font-body-md text-on-surface antialiased">
         <IntroScreen />
-        {children}
+        <Navbar />
+        <main className="w-full pt-20 bg-surface">
+          <div className="flex flex-col w-full font-body-md text-on-surface">
+            {children}
+          </div>
+        </main>
+        <FloatingWhatsApp />
+        <Footer />
       </body>
     </html>
   );

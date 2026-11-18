@@ -1,18 +1,12 @@
-import {
-  ScanFace,
-  Sun,
-  ShieldPlus,
-  Flower2,
-  Syringe,
-  Sparkles,
-  ClipboardList,
-  ArrowLeft,
-} from "lucide-react";
+import type { CSSProperties } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ClipboardList, ArrowLeft } from "lucide-react";
+import TiltedCard from "@/components/ui/TiltedCard";
 
 const services = [
   {
-    Icon: ScanFace,
-    iconBoxClass: "bg-primary-fixed text-primary",
+    iconSrc: "/images/services/acne.jpg",
     dotClass: "bg-primary",
     englishTitle: "Acne & Post-Acne Scarring",
     title: "حب الشباب وآثاره والندبات",
@@ -26,8 +20,7 @@ const services = [
     footerLabel: "بروتوكول سريري مخصص",
   },
   {
-    Icon: Sun,
-    iconBoxClass: "bg-secondary-fixed text-secondary",
+    iconSrc: "/images/services/pigmentation.jpg",
     dotClass: "bg-secondary",
     englishTitle: "Pigmentation & Melasma",
     title: "التصبغات والكلف وتوحيد اللون",
@@ -41,8 +34,7 @@ const services = [
     footerLabel: "نتائج مدروسة وآمنة",
   },
   {
-    Icon: ShieldPlus,
-    iconBoxClass: "bg-primary-fixed text-primary",
+    iconSrc: "/images/services/eczema.jpg",
     dotClass: "bg-primary",
     englishTitle: "Chronic Skin Conditions",
     title: "الإكزيما والتهابات الجلد المزمنة",
@@ -56,8 +48,7 @@ const services = [
     footerLabel: "تشخيص استشاري معتمد",
   },
   {
-    Icon: Flower2,
-    iconBoxClass: "bg-secondary-fixed text-secondary",
+    iconSrc: "/images/services/hair.jpg",
     dotClass: "bg-secondary",
     englishTitle: "Hair Loss & Scalp Disorders",
     title: "تساقط الشعر وأمراض فروة الرأس",
@@ -71,8 +62,7 @@ const services = [
     footerLabel: "تحفيز الكثافة الحيوية",
   },
   {
-    Icon: Syringe,
-    iconBoxClass: "bg-primary-fixed text-primary",
+    iconSrc: "/images/services/botox.jpg",
     dotClass: "bg-primary",
     englishTitle: "Botox & Cosmetic Injections",
     title: "الحقن التجميلي غير الجراحي",
@@ -85,8 +75,7 @@ const services = [
     footerLabel: "مواد مرخصة دولياً",
   },
   {
-    Icon: Sparkles,
-    iconBoxClass: "bg-secondary-fixed text-secondary",
+    iconSrc: "/images/services/laser.jpg",
     dotClass: "bg-secondary",
     englishTitle: "Laser & Skin Resurfacing",
     title: "تقشير الجلد والليزر وتجديد النضارة",
@@ -123,57 +112,77 @@ export function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
-          {services.map((service) => {
-            const Icon = service.Icon;
-            return (
-              <div
+          {services.map((service, index) => (
+              <TiltedCard
                 key={service.englishTitle}
-                className="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between border border-outline-variant/30"
+                containerWidth="100%"
+                containerHeight="390px"
+                imageWidth="100%"
+                imageHeight="390px"
+                rotateAmplitude={8}
+                scaleOnHover={1.03}
+                glare={0.25}
+                shadow={0.35}
+                radius={20}
+                intro
+                introDelay={index * 70}
+                captionText={service.footerLabel}
+                showTooltip
+                style={
+                  {
+                    "--tc-shadow-color": "rgba(43, 29, 36, 0.16)",
+                  } as CSSProperties
+                }
               >
-                <div className="space-y-space-sm">
-                  <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center ${service.iconBoxClass}`}
-                  >
-                    <Icon className="w-6 h-6" />
+                <div className="w-full h-full bg-surface-container-lowest p-space-md flex flex-col justify-between border border-outline-variant/30 rounded-[20px]">
+                  <div className="space-y-space-sm">
+                    <div className="w-14 h-14 rounded-xl overflow-hidden bg-white border border-outline-variant/25 flex items-center justify-center shrink-0">
+                      <Image
+                        src={service.iconSrc}
+                        alt={service.title}
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-contain p-0.5"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <span className="font-label-sm text-label-sm text-secondary font-bold">
+                        {service.englishTitle}
+                      </span>
+                      <h3 className="font-title-md text-title-md text-on-surface font-bold">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed line-clamp-3">
+                      {service.description}
+                    </p>
+                    <ul className="space-y-1 font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-1.5">
+                          <span
+                            className={`w-1.5 h-1.5 rounded-full ${service.dotClass}`}
+                          />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <div className="space-y-1">
-                    <span className="font-label-sm text-label-sm text-secondary font-bold">
-                      {service.englishTitle}
-                    </span>
-                    <h3 className="font-title-md text-title-md text-on-surface font-bold">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-1 font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-1.5">
-                        <span
-                          className={`w-1.5 h-1.5 rounded-full ${service.dotClass}`}
-                        />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
-                <div className="pt-space-md mt-space-sm flex items-center justify-between border-t border-outline-variant/20">
-                  <span className="font-label-sm text-label-sm text-secondary">
-                    {service.footerLabel}
-                  </span>
-                  <a
-                    className="font-label-md text-label-md text-primary font-bold hover:underline inline-flex items-center gap-1"
-                    href="#booking-section"
-                  >
-                    <span>حجز كشف</span>
-                    <ArrowLeft className="w-4 h-4" />
-                  </a>
+                  <div className="pt-space-md mt-space-sm flex items-center justify-between border-t border-outline-variant/20">
+                    <span className="font-label-sm text-label-sm text-secondary">
+                      {service.footerLabel}
+                    </span>
+                    <Link
+                      className="font-label-md text-label-md text-primary font-bold hover:underline inline-flex items-center gap-1"
+                      href="/booking"
+                    >
+                      <span>حجز كشف</span>
+                      <ArrowLeft className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              </TiltedCard>
+          ))}
         </div>
       </div>
     </section>

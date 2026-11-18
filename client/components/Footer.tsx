@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   MapPin,
   Phone,
@@ -7,25 +8,27 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-const specializationsList = [
-  "علاج حب الشباب وآثاره والندبات (Acne)",
-  "علاج التصبغات والكلف والتقشير الطبي",
-  "الإكزيما والتهابات الجلد والأمراض المزمنة",
-  "تساقط الشعر ومشاكل فروة الرأس والبلازما",
-  "الحقن التجميلي غير الجراحي (بوتوكس)",
-  "تقنيات الليزر المتقدمة وتجديد النضارة",
+const PAGE_LINKS = [
+  { href: "/", label: "الرئيسية وآراء المراجعين" },
+  { href: "/about", label: "عن الاستشاري والعيادة" },
+  { href: "/about#credentials-section", label: "الشهادات والاعتمادات" },
+  { href: "/services", label: "التخصصات والنتائج السريرية" },
+  { href: "/services#results-section", label: "حالات قبل وبعد" },
+  { href: "/booking", label: "حجز موعد كشف" },
 ];
 
 export function Footer() {
   return (
     <footer className="w-full bg-surface-container-low text-on-surface pt-space-xl pb-space-lg shadow-[0_-1px_12px_rgba(43,29,36,0.03)]">
       <div className="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-xl">
+        {/* Clinic Brand */}
         <div className="space-y-space-md">
-          <div className="flex items-center gap-space-sm">
+          <Link href="/" className="flex items-center gap-space-sm">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt="شعار د. نغم عماد"
               className="w-15 h-15 object-contain"
-              src="/images/logo.svg"
+              src="/images/shared/logo.svg"
             />
             <div>
               <h4 className="font-title-md text-title-md text-primary leading-tight">
@@ -35,7 +38,7 @@ export function Footer() {
                 د. نغم عماد ناصيف مكي
               </span>
             </div>
-          </div>
+          </Link>
 
           <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
             استشاري الأمراض الجلدية والتناسلية والطب التجميلي. خبرة سريرية موثقة
@@ -53,17 +56,26 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Quick Page Links */}
         <div className="space-y-space-md">
           <h5 className="font-headline-sm text-headline-sm text-on-surface">
-            التخصصات السريرية
+            أقسام الموقع
           </h5>
           <ul className="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant">
-            {specializationsList.map((item) => (
-              <li key={item}>{item}</li>
+            {PAGE_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
 
+        {/* Clinic Contact & Hours */}
         <div className="space-y-space-md">
           <h5 className="font-headline-sm text-headline-sm text-on-surface">
             معلومات العيادة والتواصل
@@ -79,12 +91,23 @@ export function Footer() {
             <div className="flex items-center gap-space-xs">
               <Phone className="w-4 h-4 text-secondary shrink-0" />
               <span className="dir-ltr font-bold text-on-surface">
-                01014056201 / 01000118500
+                <a href="tel:01014056201" className="hover:text-primary">
+                  01014056201
+                </a>{" "}
+                /{" "}
+                <a href="tel:01000118500" className="hover:text-primary">
+                  01000118500
+                </a>
               </span>
             </div>
             <div className="flex items-center gap-space-xs">
               <Mail className="w-4 h-4 text-secondary shrink-0" />
-              <span className="dir-ltr">nagamnm81@gmail.com</span>
+              <a
+                href="mailto:nagamnm81@gmail.com"
+                className="dir-ltr hover:text-primary transition-colors"
+              >
+                nagamnm81@gmail.com
+              </a>
             </div>
             <div className="flex items-start gap-space-xs">
               <Clock className="w-4 h-4 text-secondary mt-0.5 shrink-0" />
@@ -100,29 +123,39 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Clinic Shortcuts & Social */}
         <div className="space-y-space-md">
           <h5 className="font-headline-sm text-headline-sm text-on-surface">
-            أجنحة العيادة والوثائق
+            روابط سريعة
           </h5>
           <div className="grid grid-cols-3 gap-space-xs">
-            <div className="h-16 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant text-center font-label-sm text-label-sm p-1">
-              غرفة الكشف
-            </div>
-            <div className="h-16 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant text-center font-label-sm text-label-sm p-1">
-              جناح الإجراءات
-            </div>
-            <div className="h-16 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant text-center font-label-sm text-label-sm p-1">
-              شهادة الاستشاري
-            </div>
+            <Link
+              href="/about"
+              className="h-16 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-center text-on-surface-variant hover:text-primary text-center font-label-sm text-label-sm p-1"
+            >
+              عن الاستشاري
+            </Link>
+            <Link
+              href="/services"
+              className="h-16 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-center text-on-surface-variant hover:text-primary text-center font-label-sm text-label-sm p-1"
+            >
+              الخدمات والنتائج
+            </Link>
+            <Link
+              href="/booking"
+              className="h-16 rounded-lg bg-primary-fixed hover:bg-primary-fixed-dim transition-colors flex items-center justify-center text-on-primary-fixed font-bold text-center font-label-sm text-label-sm p-1"
+            >
+              حجز موعد
+            </Link>
           </div>
           <div className="flex items-center gap-space-sm pt-space-xs">
-            <a
-              aria-label="رابط الاستفسار"
+            <Link
+              aria-label="الشهادات والاعتمادات"
               className="w-9 h-9 rounded-full bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
-              href="#credentials-section"
+              href="/about#credentials-section"
             >
               <BadgeCheck className="w-4 h-4" />
-            </a>
+            </Link>
             <a
               aria-label="واتساب"
               className="w-9 h-9 rounded-full bg-surface flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
@@ -149,18 +182,24 @@ export function Footer() {
           الأمراض الجلدية والتناسلية والطب التجميلي. جميع الحقوق محفوظة.
         </p>
         <div className="flex items-center gap-space-md">
-          <a className="hover:text-primary transition-colors" href="#">
-            سياسة الخصوصية الطبية
-          </a>
-          <a className="hover:text-primary transition-colors" href="#">
-            اللوائح المهنية
-          </a>
-          <a
+          <Link
             className="hover:text-primary transition-colors"
-            href="#credentials-section"
+            href="/about#credentials-section"
           >
             بيانات القيد والترخيص
-          </a>
+          </Link>
+          <Link
+            className="hover:text-primary transition-colors"
+            href="/services"
+          >
+            الخدمات الطبية
+          </Link>
+          <Link
+            className="hover:text-primary transition-colors"
+            href="/booking"
+          >
+            احجز موعدك
+          </Link>
         </div>
       </div>
     </footer>

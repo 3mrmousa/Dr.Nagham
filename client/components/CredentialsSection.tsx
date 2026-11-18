@@ -1,6 +1,6 @@
 "use client";
 import {
-  BadgeCheck,
+  ShieldCheck,
   Award,
   ZoomIn,
   Eye,
@@ -8,10 +8,10 @@ import {
   CheckCircle2,
   Mail,
   MapPin,
-  ClipboardList,
+  BriefcaseMedical,
   GraduationCap,
-  Building2,
-  Sparkles,
+  Stethoscope,
+  Hospital,
   Quote,
   X,
 } from "lucide-react";
@@ -102,7 +102,7 @@ export function CredentialsSection() {
         <div className="max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
           <div className="text-center max-w-3xl mx-auto space-y-space-xs mb-space-xl">
             <div className="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-bold shadow-sm">
-              <BadgeCheck className="w-4 h-4" />
+              <ShieldCheck className="w-4 h-4" />
               <span>بيانات الاعتماد والتراخيص الرسمية الموثقة</span>
             </div>
             <h2 className="font-headline-lg text-headline-lg text-on-surface">
@@ -132,7 +132,7 @@ export function CredentialsSection() {
                 <img
                   alt="شهادة استشاري نقابة أطباء مصر - د. نغم عماد ناصيف مكي"
                   className="w-full h-auto max-h-115 object-contain mx-auto bg-surface-bright p-1 group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                  src="/images/syndicate-certificate.png"
+                  src="/images/about/syndicate-certificate.png"
                 />
                 <div className="absolute hidden sm:group-hover:flex inset-0 z-10 flex-col items-center justify-center gap-space-xs p-space-md pb-12 text-center bg-inverse-surface/70 backdrop-blur-[3px] group-hover:opacity-100 focus-within:opacity-100 transition-all duration-300">
                   <div className="w-12 h-12 rounded-full bg-surface-bright text-primary shadow-md flex items-center justify-center scale-90 group-hover:scale-100 transition-transform duration-300">
@@ -153,7 +153,7 @@ export function CredentialsSection() {
                       <span>عرض الشهادة</span>
                     </button>
                     <a
-                      href="/images/syndicate-certificate.png"
+                      href="/images/about/syndicate-certificate.png"
                       download="شهادة-استشاري-نقابة-الأطباء-د-نغم-عماد.png"
                       className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-bright/95 text-on-surface font-label-md text-label-md font-bold shadow-sm hover:bg-surface-bright transition-colors"
                     >
@@ -174,7 +174,7 @@ export function CredentialsSection() {
                       <Eye className="w-4 h-4" />
                     </button>
                     <a
-                      href="/images/syndicate-certificate.png"
+                      href="/images/about/syndicate-certificate.png"
                       download="شهادة-استشاري-نقابة-الأطباء-د-نغم-عماد.png"
                       className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-bright/95 text-on-surface font-label-md text-label-md font-bold shadow-sm hover:bg-surface-bright transition-colors"
                     >
@@ -206,7 +206,7 @@ export function CredentialsSection() {
                   <img
                     alt="د. نغم عماد ناصيف مكي"
                     className="w-full h-full object-contain object-top"
-                    src="/images/doctor-portrait.jpg"
+                    src="/images/about/doctor-portrait.jpg"
                   />
                 </div>
                 <div className="space-y-1 text-center sm:text-right">
@@ -239,7 +239,7 @@ export function CredentialsSection() {
                       <span>عرض السيرة الذاتية</span>
                     </button>
                     <a
-                      href="/images/doctor-portrait.jpg"
+                      href="/images/about/doctor-portrait.jpg"
                       download="السيرة-الذاتية-د-نغم-عماد.png"
                       className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-bright/95 text-on-surface font-label-md text-label-md font-bold shadow-sm hover:bg-surface-bright transition-colors border border-outline-variant/40"
                     >
@@ -252,7 +252,7 @@ export function CredentialsSection() {
 
               <div className="bg-surface-container-low rounded-2xl p-space-md border border-outline-variant/40 space-y-space-sm">
                 <h4 className="font-title-md text-title-md text-on-surface font-bold flex items-center gap-space-xs">
-                  <ClipboardList className="w-5 h-5 text-secondary" />
+                  <BriefcaseMedical className="w-5 h-5 text-secondary" />
                   <span>
                     المناصب والخبرات المهنية (Professional Experience)
                   </span>
@@ -301,7 +301,7 @@ export function CredentialsSection() {
                 </div>
                 <div className="p-space-sm rounded-xl bg-surface-container-low border border-outline-variant/40 space-y-1">
                   <div className="flex items-center gap-1.5 text-secondary font-label-md text-label-md font-bold">
-                    <Building2 className="w-5 h-5" />
+                    <Stethoscope className="w-5 h-5" />
                     <span>بكالوريوس الطب والجراحة العامة (MBBCh)</span>
                   </div>
                   <p className="font-body-sm text-body-sm text-on-surface font-semibold">
@@ -314,7 +314,7 @@ export function CredentialsSection() {
               </div>
 
               <div className="p-space-sm rounded-xl bg-primary-fixed/40 border border-primary-fixed text-on-primary-fixed flex items-start gap-space-xs">
-                <Sparkles className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                <Hospital className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                 <div>
                   <h5 className="font-label-md text-label-md font-bold text-on-primary-fixed">
                     تدريب سريري مكثف لمدة ٥ سنوات بالمستشفيات الجامعية (5-Year
@@ -362,7 +362,7 @@ export function CredentialsSection() {
             onClick={(e) => e.stopPropagation()}
             alt="شهادة استشاري نقابة أطباء مصر - د. نغم عماد ناصيف مكي"
             className="h-auto sm:w-100 object-contain mx-auto bg-surface-bright p-1 group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-            src="/images/syndicate-certificate.png"
+            src="/images/about/syndicate-certificate.png"
           />
         </div>
       )}
@@ -379,7 +379,7 @@ export function CredentialsSection() {
             onClick={(e) => e.stopPropagation()}
             alt="السيرة الذاتية المهنية - د. نغم عماد ناصيف مكي"
             className="h-auto max-h-[90vh] max-w-[90vw] sm:w-100 object-contain mx-auto bg-surface-bright p-1 transition-transform duration-500 ease-out"
-            src="/images/doctor-portrait.jpg"
+            src="/images/about/doctor-portrait.jpg"
           />
         </div>
       )}

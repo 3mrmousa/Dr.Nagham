@@ -7,6 +7,7 @@ import {
   Clock,
   Navigation,
   MessageCircle,
+  ArrowLeft,
 } from "lucide-react";
 
 export function BookingSection() {
@@ -97,13 +98,25 @@ export function BookingSection() {
             </div>
 
             <a
-              className="w-full py-2.5 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-bold flex items-center justify-center gap-2 hover:bg-secondary-fixed-dim transition-colors"
+              className="group w-full px-4 py-3 rounded-xl bg-[#1f9d55] hover:bg-[#198749] text-white shadow-[0_8px_20px_-6px_rgba(31,157,85,0.45)] hover:shadow-[0_10px_24px_-6px_rgba(31,157,85,0.55)] transition-all flex items-center justify-between gap-3"
               href="https://wa.me/201014056201"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <MessageCircle className="w-5 h-5" />
-              <span>تواصل مباشر مع مسؤولة الاستقبال عبر واتساب</span>
+              <div className="flex items-center gap-3">
+                <span className="w-9 h-9 rounded-lg bg-white/15 flex items-center justify-center shrink-0">
+                  <MessageCircle className="w-5 h-5" />
+                </span>
+                <div className="text-start">
+                  <div className="font-label-lg text-label-lg font-bold leading-tight">
+                    تواصل مباشر مع مسؤولة الاستقبال
+                  </div>
+                  <div className="text-xs text-white/85">
+                    عبر واتساب العيادة للحجز والاستفسار
+                  </div>
+                </div>
+              </div>
+              <ArrowLeft className="w-4 h-4 opacity-85 group-hover:-translate-x-1 transition-transform shrink-0" />
             </a>
           </div>
 
@@ -122,7 +135,7 @@ export function BookingSection() {
                 <img
                   alt="يافطة العيادة ومبنى العيادات التخصصية أعلى قطونيل"
                   className="w-full h-full object-cover"
-                  src="/images/clinic-exterior.png"
+                  src="/images/shared/clinic-exterior.png"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-inverse-surface/85 via-transparent to-transparent flex items-end p-space-xs">
                   <span className="text-surface-bright font-label-sm text-label-sm">

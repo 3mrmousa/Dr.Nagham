@@ -2,7 +2,7 @@ import { Building2 } from "lucide-react";
 
 const tourPhotos = [
   {
-    image: "/images/consultation-room.png",
+    image: "/images/shared/consultation-room.png",
     alt: "مكتب الاستشارة الطبية الخاص بدكتورة نغم عماد",
     badge: "غرفة الاستشارة والتشخيص",
     badgeColor: "text-primary",
@@ -11,7 +11,7 @@ const tourPhotos = [
       "وقت كافٍ لمناقشة كافة التساؤلات وشرح خطة العلاج المناسبة بدقة ووضوح.",
   },
   {
-    image: "/images/treatment-room.png",
+    image: "/images/about/treatment-room.png",
     alt: "غرفة الفحص والإجراءات التجميلية المعقمة",
     badge: "جناح الإجراءات الطبية",
     badgeColor: "text-secondary",
@@ -20,7 +20,7 @@ const tourPhotos = [
       "سرير فحص مريح وإضاءة فحص مجهرية لضمان الدقة في الحقن والتطبيق العلاجي.",
   },
   {
-    image: "/images/clinic-exterior.png",
+    image: "/images/shared/clinic-exterior.png",
     alt: "مقر العيادة الخارجي ويافطة دكتورة نغم عماد تاصيف",
     badge: "موقع العيادة المتميز",
     badgeColor: "text-primary",

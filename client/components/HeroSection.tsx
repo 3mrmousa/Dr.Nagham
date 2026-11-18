@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowLeft, BadgeCheck, PhoneCall, Mail, Shield } from "lucide-react";
 
 export function HeroSection() {
@@ -67,20 +68,20 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-wrap items-center gap-space-sm pt-space-sm">
-              <a
+              <Link
                 className="inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:bg-primary transition-all"
-                href="#booking-section"
+                href="/booking"
               >
                 <span>حجز استشارة طبية الآن</span>
                 <ArrowLeft className="w-5 h-5" />
-              </a>
-              <a
+              </Link>
+              <Link
                 className="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-sm hover:bg-surface-container border border-outline-variant/40 transition-colors"
-                href="#credentials-section"
+                href="/about#credentials-section"
               >
                 <BadgeCheck className="w-5 h-5 text-secondary" />
                 <span>الشهادات والترخيص الرسمي</span>
-              </a>
+              </Link>
             </div>
 
             <div className="pt-space-xs flex flex-wrap items-center gap-space-md text-on-surface-variant font-label-md text-label-md">
@@ -118,14 +119,14 @@ export function HeroSection() {
                 <img
                   alt="جناح الاستشارة والعيادة لدكتورة نغم عماد تاصيف"
                   className="w-full h-full object-cover object-center"
-                  src="/images/consultation-room.png"
+                  src="/images/shared/consultation-room.png"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/85 via-inverse-surface/20 to-transparent" />
                 <div className="absolute top-4 left-4 bg-surface-container-lowest/95 backdrop-blur-md p-2 rounded-xl shadow-md flex items-center gap-2 border border-outline-variant/30">
                   <img
                     alt="شعار د. نغم عماد تاصيف الرسمي"
                     className="h-10 w-auto object-contain"
-                    src="/images/logo.svg"
+                    src="/images/shared/logo.svg"
                   />
                 </div>
                 <div className="absolute bottom-4 right-4 left-4 text-on-primary">

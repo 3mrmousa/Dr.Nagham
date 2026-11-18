@@ -1,35 +1,25 @@
-import {
-  Syringe,
-  Sparkles,
-  Microscope,
-  HeartPulse,
-  Award,
-  Users,
-  Stethoscope,
-} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Award, Users, Stethoscope } from "lucide-react";
 
 const trainingBadges = [
   {
-    Icon: Syringe,
-    iconColor: "text-primary",
+    iconSrc: "/images/about/cosmetic-injection.jpg",
     title: "حقن التجميل المتقدمة والبوتوكس",
     subtitle: "Cosmetic Injection Techniques & Botox",
   },
   {
-    Icon: Sparkles,
-    iconColor: "text-secondary",
+    iconSrc: "/images/about/mesotherapy.jpg",
     title: "الميزوثيرابي وعلاج الشعر ونضارة البشرة",
     subtitle: "Mesotherapy, Hair Rejuvenation & Skin Resurfacing",
   },
   {
-    Icon: Microscope,
-    iconColor: "text-primary",
+    iconSrc: "/images/about/dermatoscope-laser.jpg",
     title: "تقنيات الليزر المتقدمة للأمراض الجلدية",
     subtitle: "Laser Technologies & Advanced Dermatological Devices",
   },
   {
-    Icon: HeartPulse,
-    iconColor: "text-secondary",
+    iconSrc: "/images/about/scar-revision.jpg",
     title: "تقنيات المايكروبليدينج وعلاج الندبات",
     subtitle: "Microbleeding Techniques & Post-Acne Scar Revision",
   },
@@ -58,7 +48,7 @@ export function AboutSection() {
                 <img
                   alt="غرفة الفحص والعلاج الطبي المجهزة"
                   className="w-full h-full object-cover"
-                  src="/images/treatment-room.png"
+                  src="/images/about/treatment-room.png"
                 />
               </div>
               <div className="p-space-sm bg-primary-fixed rounded-xl text-on-primary-fixed">
@@ -86,7 +76,7 @@ export function AboutSection() {
                 <img
                   alt="مكتب الاستشارة الطبية"
                   className="w-full h-full object-cover"
-                  src="/images/consultation-room.png"
+                  src="/images/shared/consultation-room.png"
                 />
               </div>
             </div>
@@ -114,27 +104,30 @@ export function AboutSection() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
-              {trainingBadges.map((item) => {
-                const Icon = item.Icon;
-                return (
-                  <div
-                    key={item.title}
-                    className="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container-low border border-outline-variant/30"
-                  >
-                    <Icon
-                      className={`w-5 h-5 mt-0.5 shrink-0 ${item.iconColor}`}
+              {trainingBadges.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-container-low border border-outline-variant/30"
+                >
+                  <div className="w-11 h-11 rounded-xl overflow-hidden bg-white border border-outline-variant/25 flex items-center justify-center shrink-0">
+                    <Image
+                      src={item.iconSrc}
+                      alt={item.title}
+                      width={44}
+                      height={44}
+                      className="w-full h-full object-contain p-0.5"
                     />
-                    <div>
-                      <h4 className="font-label-lg text-label-lg text-on-surface font-semibold">
-                        {item.title}
-                      </h4>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant">
-                        {item.subtitle}
-                      </p>
-                    </div>
                   </div>
-                );
-              })}
+                  <div>
+                    <h4 className="font-label-lg text-label-lg text-on-surface font-semibold">
+                      {item.title}
+                    </h4>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant">
+                      {item.subtitle}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="p-space-sm bg-surface-container-lowest rounded-xl border border-outline-variant/40 space-y-2">
@@ -169,12 +162,12 @@ export function AboutSection() {
                   </div>
                 </div>
               </div>
-              <a
+              <Link
                 className="px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-colors whitespace-nowrap"
-                href="#booking-section"
+                href="/booking"
               >
                 حجز استشارة
-              </a>
+              </Link>
             </div>
           </div>
         </div>
