@@ -4,7 +4,7 @@ import { ArrowLeft, BadgeCheck, PhoneCall, Mail, Shield } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-low via-surface to-surface-bright pb-space-xl">
+    <section className="relative w-full overflow-hidden bg-linear-to-b from-surface-container-low via-surface to-surface-bright pb-space-xl">
       <div className="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-primary-fixed-dim/30 blur-3xl pointer-events-none z-0" />
       <div className="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-secondary-fixed/40 blur-3xl pointer-events-none z-0" />
 

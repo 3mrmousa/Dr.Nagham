@@ -13,6 +13,8 @@ const services = [
     description:
       "تشخيص الأسباب الهرمونية والجلدية لحب الشباب الحاد والمزمن، وتطبيق تقنيات علاج الندبات العميقة والسطحية عبر تقشير الجلد وتقنيات الفراكشنال الدقيقة.",
     features: [
+      "* جلسات تقشير مخصصة لتخفيف الحبوب بشكل فعال واسرع من العلاج الروتيني",
+      "جلسة تنضيف طبية للرؤوس السوداء والبيضاء بشكل نهائي ",
       "تقطيع الألياف والندبات (Subcision)",
       "علاج الحفر والآثار الصعبة",
       "تنظيم الإفراز الدهني وتنقية البشرة",
@@ -43,7 +45,7 @@ const services = [
     features: [
       "فحص مجهري وتشخيص دقيق",
       "علاج الحساسية والحكة الشديدة",
-      "إرشادات الحفاظ على حاجز البشرة",
+      "ارشادات مفصلة للوقاية والحفاظ على الجلد في حالة الامراض المزمنة",
     ],
     footerLabel: "تشخيص استشاري معتمد",
   },
@@ -55,8 +57,8 @@ const services = [
     description:
       "فحص شامل لتساقط الشعر الوراثي والتيلوجيني، القشرة المزمنة، والثعلبة، عبر حقن البلازما الغنية بالصفائح (PRP) والميزوثيرابي المغذي للبصيلات.",
     features: [
-      "جلسات بلازما الشعر المنشطة (PRP)",
-      "ميزوثيرابي إيقاف التساقط والإنبات",
+      "جلسات انبات الشعر عالية الغعالية بتقنيات خديثة لتغذية وتقوية بصيلات الشعر وتحسين قوامها",
+      "جلسات حقن موضعي ومايكروبيليدينج مخصصة للصلع ونحافة الشعر الوراثية",
       "علاج التهابات وقشرة الفروة",
     ],
     footerLabel: "تحفيز الكثافة الحيوية",
@@ -69,6 +71,8 @@ const services = [
     description:
       "إجراءات دقيقة لاستعادة نضارة الملامح وعلاج تجاعيد التعبير بمقاييس جمالية راقية تبتعد عن المبالغة.",
     features: [
+      "حقن مواد اذابة للخلايا الدهنية عن طريق الجلد للتخسيس الموضعي الآمن خاصة للذقن المزدوجة",
+      "حقن مواد محفزة للكولاجين ومغذيات للحفاظ على حيوية البشرة وتحسين قوامها",
       "بوتوكس الجبهة، محيط العين، وتجاعيد الرقبة",
       "حقن علاج فرط التعرق (Hyperhidrosis)",
     ],
@@ -137,75 +141,75 @@ export function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
           {services.map((service, index) => (
-              <TiltedCard
-                key={service.englishTitle}
-                containerWidth="100%"
-                containerHeight="390px"
-                imageWidth="100%"
-                imageHeight="390px"
-                rotateAmplitude={8}
-                scaleOnHover={1.03}
-                glare={0.25}
-                shadow={0.35}
-                radius={20}
-                intro
-                introDelay={index * 70}
-                captionText={service.footerLabel}
-                showTooltip
-                style={
-                  {
-                    "--tc-shadow-color": "rgba(43, 29, 36, 0.16)",
-                  } as CSSProperties
-                }
-              >
-                <div className="w-full h-full bg-surface-container-lowest p-space-md flex flex-col justify-between border border-outline-variant/30 rounded-[20px]">
-                  <div className="space-y-space-sm">
-                    <div className="w-14 h-14 rounded-xl overflow-hidden bg-white border border-outline-variant/25 flex items-center justify-center shrink-0">
-                      <Image
-                        src={service.iconSrc}
-                        alt={service.title}
-                        width={56}
-                        height={56}
-                        className="w-full h-full object-contain p-0.5"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <span className="font-label-sm text-label-sm text-secondary font-bold">
-                        {service.englishTitle}
-                      </span>
-                      <h3 className="font-title-md text-title-md text-on-surface font-bold">
-                        {service.title}
-                      </h3>
-                    </div>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed line-clamp-3">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-1 font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-1.5">
-                          <span
-                            className={`w-1.5 h-1.5 rounded-full ${service.dotClass}`}
-                          />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+            <TiltedCard
+              key={service.englishTitle}
+              containerWidth="100%"
+              containerHeight="390px"
+              imageWidth="100%"
+              imageHeight="390px"
+              rotateAmplitude={8}
+              scaleOnHover={1.03}
+              glare={0.25}
+              shadow={0.35}
+              radius={20}
+              intro
+              introDelay={index * 70}
+              captionText={service.footerLabel}
+              showTooltip
+              style={
+                {
+                  "--tc-shadow-color": "rgba(43, 29, 36, 0.16)",
+                } as CSSProperties
+              }
+            >
+              <div className="w-full h-full bg-surface-container-lowest p-space-md flex flex-col justify-between border border-outline-variant/30 rounded-[20px]">
+                <div className="space-y-space-sm">
+                  <div className="w-14 h-14 rounded-xl overflow-hidden bg-white border border-outline-variant/25 flex items-center justify-center shrink-0">
+                    <Image
+                      src={service.iconSrc}
+                      alt={service.title}
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-contain p-0.5"
+                    />
                   </div>
-
-                  <div className="pt-space-md mt-space-sm flex items-center justify-between border-t border-outline-variant/20">
-                    <span className="font-label-sm text-label-sm text-secondary">
-                      {service.footerLabel}
+                  <div className="space-y-1">
+                    <span className="font-label-sm text-label-sm text-secondary font-bold">
+                      {service.englishTitle}
                     </span>
-                    <Link
-                      className="font-label-md text-label-md text-primary font-bold hover:underline inline-flex items-center gap-1"
-                      href="/booking"
-                    >
-                      <span>حجز كشف</span>
-                      <ArrowLeft className="w-4 h-4" />
-                    </Link>
+                    <h3 className="font-title-md text-title-md text-on-surface font-bold">
+                      {service.title}
+                    </h3>
                   </div>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed line-clamp-3">
+                    {service.description}
+                  </p>
+                  <ul className="space-y-1 font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-1.5">
+                        <span
+                          className={`w-1.5 h-1.5 rounded-full ${service.dotClass}`}
+                        />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </TiltedCard>
+
+                <div className="pt-space-md mt-space-sm flex items-center justify-between border-t border-outline-variant/20">
+                  <span className="font-label-sm text-label-sm text-secondary">
+                    {service.footerLabel}
+                  </span>
+                  <Link
+                    className="font-label-md text-label-md text-primary font-bold hover:underline inline-flex items-center gap-1"
+                    href="/booking"
+                  >
+                    <span>حجز كشف</span>
+                    <ArrowLeft className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </TiltedCard>
           ))}
         </div>
 
@@ -221,8 +225,8 @@ export function ServicesSection() {
               </h3>
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant max-w-md">
-              صور حقيقية من داخل العيادة أثناء استخدام أحدث أجهزة التشخيص
-              الضوئي والعلاج بالتبريد والمايكروبليدينج.
+              صور حقيقية من داخل العيادة أثناء استخدام أحدث أجهزة التشخيص الضوئي
+              والعلاج بالتبريد والمايكروبليدينج.
             </p>
           </div>
 
@@ -309,4 +313,3 @@ export function ServicesSection() {
     </section>
   );
 }
-
